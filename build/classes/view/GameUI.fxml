@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.GameUIController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: linear-gradient(to bottom, #dff9fb, #c7ecee);">
+
+    <Label text="PHÂN LOẠI RÁC" layoutX="280" layoutY="20"
+           style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #2f3640;" />
+
+    <Pane fx:id="trashArea" layoutX="50" layoutY="100" prefWidth="300" prefHeight="400"
+          style="-fx-border-color: #7f8c8d; -fx-background-color: #f5f6fa; -fx-border-radius: 10; -fx-background-radius: 10;">
+        <Label text="Kéo rác vào thùng phù hợp!" layoutX="40" layoutY="10" style="-fx-text-fill: gray;"/>
+    </Pane>
+
+    <HBox layoutX="420" layoutY="380" spacing="30" alignment="CENTER">
+        <VBox alignment="CENTER">
+            <ImageView fx:id="plasticBin" fitWidth="120" fitHeight="120"/>
+            <Label text="Nhựa" style="-fx-font-weight: bold; -fx-text-fill: #0984e3;" />
+        </VBox>
+        <VBox alignment="CENTER">
+            <ImageView fx:id="paperBin" fitWidth="120" fitHeight="120"/>
+            <Label text="Giấy" style="-fx-font-weight: bold; -fx-text-fill: #00b894;" />
+        </VBox>
+        <VBox alignment="CENTER">
+            <ImageView fx:id="metalBin" fitWidth="120" fitHeight="120"/>
+            <Label text="Kim loại" style="-fx-font-weight: bold; -fx-text-fill: #d63031;" />
+        </VBox>
+    </HBox>
+
+    <Label fx:id="scoreLabel" text="Điểm: 0" layoutX="650" layoutY="40"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2d3436;" />
+
+    <Button text="Thoát trò chơi" layoutX="640" layoutY="540" onAction="#handleExit"
+            style="-fx-background-color: #d63031; -fx-text-fill: white; -fx-font-weight: bold;"/>
+</AnchorPane>
