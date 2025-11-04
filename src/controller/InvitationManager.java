@@ -40,7 +40,7 @@ public class InvitationManager {
         invitations.put(invitationId, invitation);
         pendingInvitations.put(toUsername, invitationId);
         
-        System.out.println("✉️ Lời mời mới: " + fromUsername + " -> " + toUsername);
+        System.out.println("[INVITATION] New invitation: " + fromUsername + " -> " + toUsername);
         return invitation;
     }
 
@@ -58,7 +58,7 @@ public class InvitationManager {
         if (invitation.isTimeout()) {
             invitation.setStatus(InvitationStatus.TIMEOUT);
             cleanupInvitation(invitationId);
-            System.out.println("⏰ Lời mời đã hết hạn: " + invitationId);
+            System.out.println("[INVITATION] Timeout: " + invitationId);
             return invitation;
         }
 
@@ -68,7 +68,7 @@ public class InvitationManager {
         // Xóa khỏi pending
         pendingInvitations.remove(invitation.getToUsername());
         
-        System.out.println("📬 Phản hồi lời mời: " + invitationId + " - " + response);
+        System.out.println("[INVITATION] Response: " + invitationId + " - " + response);
         return invitation;
     }
 
@@ -118,12 +118,5 @@ public class InvitationManager {
             return true;
         }
         return false;
-    }
-
-    /**
-     * Lấy danh sách tất cả lời mời (cho debug)
-     */
-    public Map<String, Invitation> getAllInvitations() {
-        return new HashMap<>(invitations);
     }
 }
